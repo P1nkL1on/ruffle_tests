@@ -9,4 +9,4 @@ fl.trace('.swf target = ' + swfAbsPath)
 
 var flaDoc = fl.openDocument(flaAbsPath)
 flaDoc.exportSWF(swfAbsPath, true)
-fl.quit(false)
+// fl.quit(false)

@@ -12,3 +12,6 @@ bin-release/
 *.air
 *.ipa
 *.apk
+
+# Tmp files
+Tools/ExportParams.txt
