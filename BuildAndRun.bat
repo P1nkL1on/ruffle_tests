@@ -1,4 +1,4 @@
-set ProjectName=Prototype
+set ProjectName=Source\Prototype
 set FlashPath="C:\Program Files (x86)\Macromedia\Flash 8\Flash.exe"
 set TmpParamsPath="C:\Users\Leonid\AppData\Local\Macromedia\Flash 8\en\Configuration\Commands\ExportParams.txt"
 set RufflePath="D:\progs\ruffle\ruffle.exe"
