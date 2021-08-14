@@ -1,4 +1,6 @@
 var paramsPath = fl.configURI + "Commands/ExportParams.txt"
+fl.trace('params taken from = ' + paramsPath)
+
 var paramsStr = FLfile.read(paramsPath)
 var params = paramsStr.split('\\').join('/').split(' ')
 var flaAbsPath = "file:///" + params[0]
@@ -9,4 +11,4 @@ fl.trace('.swf target = ' + swfAbsPath)
 
 var flaDoc = fl.openDocument(flaAbsPath)
 flaDoc.exportSWF(swfAbsPath, true)
-// fl.quit(false)
+fl.quit(false)
