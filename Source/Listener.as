@@ -1,23 +1,28 @@
 class Listener {
-  static function helloWorld() {
-    trace("Hello, world!");
-  }
-  static function mkListenerHandler(obj: MovieClip) {
-    obj.listeners = new Array()
-    obj.mkListener = function(listener: Function) {
-      obj.listeners.push(listener)
+  static function mkListenerHandler(obj: MovieClip, types: Array) {
+    Utils.debug(arguments)
+    /* Utils.debug("Listener::mkListenerHandler", "obj = " + obj._name + "; types = " + types) */
+    obj.mkListener = function(type: String, listener: Function) {
+      Utils.assertDefined(obj, type + "Listeners")
+      obj[type + "Listeners"].push(listener)
     }
-    obj.onEnterFrame = function() {
-      for (var i in obj.listeners)
-        obj.listeners[i](obj)
+
+    for (var i in types) {
+      var type = types[i]
+      obj[type + "Listeners"] = new Array()
+      obj[type] = function() {
+        for (var j in obj[type + "Listeners"])
+          obj[type + "Listeners"][j](obj)
+      }
     }
   }
   static function spinRight(mc: MovieClip) {
     mc._rotation++
   }
   static function main() {
-    mkListenerHandler(_root.b)
+    Utils.debug(arguments)
+    mkListenerHandler(_root.b, new Array("onEnterFrame"))
 
-    _root.b.mkListener(spinRight)
+    _root.b.mkListener("onEnterFrame", spinRight)
   }
 }
